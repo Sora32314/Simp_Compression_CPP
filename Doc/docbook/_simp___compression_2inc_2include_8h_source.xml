@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__simp___compression_2inc_2include_8h_source" xml:lang="zh">
+<title>include.h</title>
+<indexterm><primary>Simp_Compression/inc/include.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&lt;fstream&gt;</emphasis>
+4 <emphasis role="preprocessor">#include&#32;&lt;iostream&gt;</emphasis>
+5 <emphasis role="preprocessor">#include&#32;&lt;functional&gt;</emphasis>
+6 <emphasis role="preprocessor">#include&#32;&lt;filesystem&gt;</emphasis>
+7 
+8 <emphasis role="preprocessor">#include&#32;&quot;Binary\inc\include.h&quot;</emphasis>
+9 <emphasis role="keyword">namespace&#32;</emphasis>BO&#32;=&#32;Binary::Operator;
+10 <emphasis role="keyword">namespace&#32;</emphasis>fs&#32;=&#32;std::filesystem;
+11 
+12 <emphasis role="preprocessor">#ifndef&#32;BYTESIZE</emphasis>
+13 <emphasis role="preprocessor">#define&#32;BYTESIZE&#32;8</emphasis>
+14 <emphasis role="preprocessor">#endif</emphasis>
+15 
+16 
+22 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_simp___compression">Simp_Compression</link>
+23 {
+24 &#32;&#32;&#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis>FileSystem
+25 &#32;&#32;&#32;&#32;{
+26 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis>SCF&#32;=&#32;Simp_Compression::FileSystem;
+27 
+28 
+37 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;<emphasis role="keyword">typename</emphasis>&#32;Tt,&#32;<emphasis role="keyword">typename</emphasis>&#32;...&#32;Args&gt;
+38 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;CallBack_Wrapper(std::function&lt;Tt&gt;&#32;func,&#32;Args&amp;&amp;&#32;...&#32;args)
+39 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;
+40 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;ret&#32;=&#32;func(std::forward&lt;Args&gt;(args)&#32;...);
+41 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ret;
+42 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+43 
+44 
+51 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;File_Create(std::string&amp;&amp;&#32;argPath,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;ifRelative)
+52 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+53 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fs::path&#32;pa(argPath);
+54 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(pa.empty())
+55 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+56 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pa&#32;=&#32;fs::current_path().string();
+57 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+58 
+59 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//拼接路径</emphasis>
+60 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(ifRelative)
+61 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+62 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::ofstream&#32;file(fs::current_path().<emphasis role="keywordtype">string</emphasis>()&#32;+&#32;pa.string(),&#32;std::ios::ate);
+63 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;file.close();
+64 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+65 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+66 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+67 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::ofstream&#32;file(pa,&#32;std::ios::ate);
+68 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;file.close();
+69 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+70 
+71 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+72 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+73 
+74 
+83 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;File_Write(std::string&amp;&amp;&#32;argPath,&#32;std::string&amp;&amp;&#32;buffer,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;ifRelative)
+84 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+85 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fs::path&#32;pa(std::forward&lt;std::string&gt;(argPath));
+86 
+87 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//拼接路径</emphasis>
+88 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(ifRelative)
+89 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+90 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pa&#32;=&#32;fs::current_path()&#32;/&#32;pa;
+91 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+92 
+93 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//寻找文件是否存在，如果存在则以正常方式打开并且定位至文件尾，没有则打开失败</emphasis>
+94 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::ofstream&#32;file(pa,&#32;std::ios::ate|std::ios::in);
+95 
+96 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(!file)
+97 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+98 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+99 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//写入文件</emphasis>
+102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;file.write(std::forward&lt;std::string&gt;(buffer).c_str(),&#32;std::forward&lt;std::string&gt;(buffer).size());
+103 
+104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;file.close();
+105 
+106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+108 
+109 
+118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;File_Write_Bin(std::string&amp;&amp;&#32;argPath,&#32;std::vector&lt;int&gt;&amp;&amp;&#32;buffer,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;ifRelative)
+119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fs::path&#32;pa(std::forward&lt;std::string&gt;(argPath));
+121 
+122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//拼接路径</emphasis>
+123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(ifRelative)
+124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pa&#32;=&#32;fs::current_path()&#32;/&#32;pa;
+126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+127 
+128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//寻找文件是否存在，如果存在则以二进制方式打开并且定位至文件尾，没有则打开失败</emphasis>
+129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::ofstream&#32;file(pa,&#32;std::ios::ate|std::ios::in|std::ios::binary);
+130 
+131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(!file)
+132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//写入文件</emphasis>
+137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;file.write(<emphasis role="keyword">reinterpret_cast&lt;</emphasis><emphasis role="keywordtype">char</emphasis>*<emphasis role="keyword">&gt;</emphasis>(std::forward&lt;std::vector&lt;int&gt;&gt;(buffer).data()),&#32;std::forward&lt;std::vector&lt;int&gt;&gt;(buffer).size()&#32;*&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">int</emphasis>));
+138 
+139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;file.close();
+140 
+141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+143 
+144 
+145 
+150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_simp___compression_1_1_file_system_1_1_file_system___func">FileSystem_Func</link>
+151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::function&lt;void(std::string&amp;&amp;,&#32;<emphasis role="keywordtype">bool</emphasis>)&gt;&#32;FileCreate&#32;=&#32;SCF::File_Create;
+153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::function&lt;bool(std::string&amp;&amp;,&#32;std::string&amp;&amp;,&#32;<emphasis role="keywordtype">bool</emphasis>)&gt;&#32;FileWrite&#32;=&#32;SCF::File_Write;
+154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::function&lt;bool(std::string&amp;&amp;,&#32;std::vector&lt;int&gt;&amp;&amp;,&#32;<emphasis role="keywordtype">bool</emphasis>)&gt;&#32;FileWriteBin&#32;=&#32;SCF::File_Write_Bin;
+155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+156 
+157 &#32;&#32;&#32;&#32;}&#32;
+158 &#32;&#32;&#32;&#32;
+159 
+160 
+168 &#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;<emphasis role="keyword">typename</emphasis>&#32;Tt,&#32;<emphasis role="keyword">typename</emphasis>&#32;...&#32;Args&gt;
+169 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_namespace_simp___compression_1abc646bbb612fbb58c2af15fd37c5bf6b">CallBack_Wrapper</link>(std::function&lt;Tt&gt;&#32;func,&#32;Args&amp;&amp;&#32;...&#32;args)
+170 &#32;&#32;&#32;&#32;{&#32;
+171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;ret&#32;=&#32;func(std::forward&lt;Args&gt;(args)&#32;...);
+172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ret;
+173 &#32;&#32;&#32;&#32;}
+174 
+175 
+176 
+186 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespace_simp___compression_1af5056377f8f2965a0ee23d8443667034">Gene_Compression</link>(std::string&amp;&amp;&#32;argPath,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;isRelativeArg,&#32;std::string&amp;&amp;&#32;resPath,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;isRelativeRes)
+187 &#32;&#32;&#32;&#32;{
+188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;streamTarget;
+189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//int位大小</emphasis>
+190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">short</emphasis>&#32;intBitCount&#32;=&#32;<emphasis role="keyword">sizeof</emphasis>(int)&#32;*&#32;8;
+191 
+192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;target&#32;=&#32;0;
+193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fs::path&#32;fsResPath(std::forward&lt;std::string&gt;(resPath));
+194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fs::path&#32;fsArgPath(std::forward&lt;std::string&gt;(argPath));
+195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//如果是相对路径，则补充为绝对路径</emphasis>
+196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(isRelativeRes)
+197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fsResPath&#32;=&#32;fs::current_path()&#32;/&#32;fsResPath;
+199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+200 
+201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(isRelativeArg)
+202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fsArgPath&#32;=&#32;fs::current_path()&#32;/&#32;fsArgPath;
+204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+205 
+206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//打开文件</emphasis>
+207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::ifstream&#32;argFile(fsArgPath,&#32;std::ios::in);
+208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::ofstream&#32;resFile(fsResPath,&#32;std::ios::out|std::ios::trunc|std::ios::binary);
+209 
+210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//文件长度</emphasis>
+211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;length&#32;=&#32;0;
+212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;resFile.write(<emphasis role="keyword">reinterpret_cast&lt;</emphasis><emphasis role="keywordtype">char</emphasis>*<emphasis role="keyword">&gt;</emphasis>(&amp;length),&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">size_t</emphasis>));
+213 
+214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//逐渐读取文件直到文件末尾</emphasis>
+215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;buffer[128]&#32;=&#32;{0};
+216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!argFile.eof())
+217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//创建缓冲区并初始化字符串</emphasis>
+219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;argFile.read(buffer,&#32;128);
+220 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::streamsize&#32;bytesRead&#32;=&#32;argFile.gcount();
+221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//将读取到的数据存储至数组中</emphasis>
+223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keyword">decltype</emphasis>(bytesRead)&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;bytesRead;&#32;i++,&#32;length&#32;+=&#32;2)
+224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(buffer[i]&#32;==&#32;<emphasis role="charliteral">&apos;A&apos;</emphasis>)
+226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.push_back(0);
+228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.push_back(0);
+229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(buffer[i]&#32;==&#32;<emphasis role="charliteral">&apos;T&apos;</emphasis>)
+231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.push_back(1);
+233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.push_back(0);
+234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(buffer[i]&#32;==&#32;<emphasis role="charliteral">&apos;C&apos;</emphasis>)
+236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.push_back(0);
+238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.push_back(1);
+239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(buffer[i]&#32;==&#32;<emphasis role="charliteral">&apos;G&apos;</emphasis>)
+241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.push_back(1);
+243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.push_back(1);
+244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+246 
+247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//处理并写入数据到int中，之后写入到文件里</emphasis>
+248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;streamTarget.size();)&#32;
+249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;target&#32;=&#32;0;
+251 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;j&#32;=&#32;1;&#32;j&#32;&lt;=&#32;intBitCount&#32;&amp;&amp;&#32;i&#32;&lt;&#32;streamTarget.size();&#32;j++,&#32;i++)&#32;
+252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;target&#32;=&#32;BO::Bit_Set(target,&#32;j,&#32;streamTarget[i]);
+254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;resFile.write(<emphasis role="keyword">reinterpret_cast&lt;</emphasis><emphasis role="keywordtype">char</emphasis>*<emphasis role="keyword">&gt;</emphasis>(&amp;target),&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">int</emphasis>));
+256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.clear();
+259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;&#32;&#32;
+260 
+261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;resFile.seekp(std::ios::beg);
+262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;resFile.write(<emphasis role="keyword">reinterpret_cast&lt;</emphasis><emphasis role="keywordtype">char</emphasis>*<emphasis role="keyword">&gt;</emphasis>(&amp;length),&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">size_t</emphasis>));
+263 
+264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;argFile.close();
+265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;resFile.close();
+266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+267 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+268 &#32;&#32;&#32;&#32;}
+269 
+270 
+271 
+281 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_namespace_simp___compression_1adea5f7af3c73c02bcdf84cf8b28ebbb6">Gene_Decompression</link>(std::string&amp;&amp;&#32;argPath,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;isRelativeArg,&#32;std::string&amp;&amp;&#32;resPath,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;isRelativeRes)
+282 &#32;&#32;&#32;&#32;{
+283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;bool&gt;&#32;streamTarget;
+284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;char&gt;&#32;streamInput;
+285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fs::path&#32;fsResPath(std::forward&lt;std::string&gt;(resPath));
+286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fs::path&#32;fsArgPath(std::forward&lt;std::string&gt;(argPath));
+287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//如果是相对路径，则补充为绝对路径</emphasis>
+288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(isRelativeRes)
+289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fsResPath&#32;=&#32;fs::current_path()&#32;/&#32;fsResPath;
+291 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+292 
+293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(isRelativeArg)
+294 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fsArgPath&#32;=&#32;fs::current_path()&#32;/&#32;fsArgPath;
+296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+297 
+298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::ifstream&#32;ArgFile(fsArgPath,&#32;std::ios::in|std::ios::binary);
+299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::ofstream&#32;ResFile(fsResPath,&#32;std::ios::ate|std::ios::trunc);
+300 
+301 
+302 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//获取文件长度</emphasis>
+303 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;lengthBuffer[<emphasis role="keyword">sizeof</emphasis>(size_t)]&#32;=&#32;{0};
+304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgFile.read(lengthBuffer,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">size_t</emphasis>));
+305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;size&#32;=&#32;*(<emphasis role="keyword">reinterpret_cast&lt;</emphasis><emphasis role="keywordtype">size_t</emphasis>*<emphasis role="keyword">&gt;</emphasis>(lengthBuffer));
+306 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>(size&#32;&gt;&#32;0)
+309 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+310 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//创建并初始化字符串</emphasis>
+311 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;buffer[128]&#32;=&#32;{0};
+312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgFile.read(buffer,&#32;128);
+313 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::streamsize&#32;bytesRead&#32;=&#32;ArgFile.gcount();
+314 
+315 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//读取每一位到bool类型数组中</emphasis>
+316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keyword">decltype</emphasis>(bytesRead)&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;bytesRead;&#32;i++)
+317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+318 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keyword">decltype</emphasis>(bytesRead)&#32;j&#32;=&#32;0;&#32;j&#32;&lt;&#32;BYTESIZE;&#32;j++)
+319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.push_back(BO::Bit_Check(buffer[i],&#32;j));
+321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+324 
+325 
+326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keywordtype">size_t</emphasis>&#32;bufferCount&#32;=&#32;0;&#32;bufferCount&#32;&lt;&#32;streamTarget.size()&#32;&amp;&amp;&#32;size&#32;&gt;&#32;0;&#32;bufferCount&#32;+=&#32;2,&#32;size&#32;-=&#32;2)
+327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(streamTarget[bufferCount]&#32;==&#32;<emphasis role="keyword">false</emphasis>)
+329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(streamTarget[bufferCount&#32;+&#32;1]&#32;==&#32;<emphasis role="keyword">false</emphasis>)
+331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamInput.push_back(<emphasis role="charliteral">&apos;A&apos;</emphasis>);
+333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+335 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamInput.push_back(<emphasis role="charliteral">&apos;C&apos;</emphasis>);
+337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+339 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>(streamTarget[bufferCount]&#32;==&#32;<emphasis role="keyword">true</emphasis>)
+340 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(streamTarget[bufferCount&#32;+&#32;1]&#32;==&#32;<emphasis role="keyword">false</emphasis>)
+342 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+343 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamInput.push_back(<emphasis role="charliteral">&apos;T&apos;</emphasis>);
+344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+345 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+347 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamInput.push_back(<emphasis role="charliteral">&apos;G&apos;</emphasis>);
+348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+349 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+351 
+352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamTarget.clear();
+353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ResFile.write(streamInput.data(),&#32;streamInput.size());
+355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;streamInput.clear();
+357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ArgFile.close();
+360 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ResFile.close();
+361 
+362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+363 &#32;&#32;&#32;&#32;}
+364 
+365 
+370 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_simp___compression_1_1_simp___compression___func">Simp_Compression_Func</link>
+371 &#32;&#32;&#32;&#32;{
+372 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::function&lt;bool(std::string&amp;&amp;,&#32;<emphasis role="keywordtype">bool</emphasis>,&#32;std::string&amp;&amp;,&#32;<emphasis role="keywordtype">bool</emphasis>)&gt;&#32;GeneCompression&#32;=&#32;<link linkend="_namespace_simp___compression_1af5056377f8f2965a0ee23d8443667034">Gene_Compression</link>;
+373 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::function&lt;bool(std::string&amp;&amp;,&#32;<emphasis role="keywordtype">bool</emphasis>,&#32;std::string&amp;&amp;,&#32;<emphasis role="keywordtype">bool</emphasis>)&gt;&#32;GeneDecompression&#32;=&#32;<link linkend="_namespace_simp___compression_1adea5f7af3c73c02bcdf84cf8b28ebbb6">Gene_Decompression</link>;
+374 &#32;&#32;&#32;&#32;};
+375 &#32;&#32;&#32;&#32;
+376 
+377 }&#32;
+378 
+379 
+380 
+381 
+382 
+383 
+384 
+385 
+386 
+387 
+</programlisting></section>

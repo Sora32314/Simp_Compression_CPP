@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="zh">
+  <compounddef id="namespace_simp___compression_1_1_file_system" kind="namespace" language="C++">
+    <compoundname>Simp_Compression::FileSystem</compoundname>
+    <innerclass refid="struct_simp___compression_1_1_file_system_1_1_file_system___func" prot="public">Simp_Compression::FileSystem::FileSystem_Func</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_simp___compression_2inc_2include_8h_1a46c10690bb0add6e34edd507498c898c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Tt</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto Simp_Compression::FileSystem::CallBack_Wrapper</definition>
+        <argsstring>(std::function&lt; Tt &gt; func, Args &amp;&amp;... args)</argsstring>
+        <name>CallBack_Wrapper</name>
+        <qualifiedname>Simp_Compression::FileSystem::CallBack_Wrapper</qualifiedname>
+        <param>
+          <type>std::function&lt; Tt &gt;</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>文件系统命名空间内的函数包装器。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>传入需要包装的函数指针。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>args 函数的参数。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>返回函数调用的结果。 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Simp_Compression/inc/include.h" line="38" column="14" bodyfile="Simp_Compression/inc/include.h" bodystart="38" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="_simp___compression_2inc_2include_8h_1a0373adc78667304c4a985a1ccfe5be0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Simp_Compression::FileSystem::File_Create</definition>
+        <argsstring>(std::string &amp;&amp;argPath, bool ifRelative)</argsstring>
+        <name>File_Create</name>
+        <qualifiedname>Simp_Compression::FileSystem::File_Create</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>argPath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ifRelative</declname>
+        </param>
+        <briefdescription>
+<para>用来创建一个文件。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>argPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>需要创建的文件路径。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ifRelative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>flag，用来控制传入的路径是否为相对路径。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Simp_Compression/inc/include.h" line="51" column="14" bodyfile="Simp_Compression/inc/include.h" bodystart="51" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="_simp___compression_2inc_2include_8h_1a4044d5d20ec28d50c96b7f3708d97337" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Simp_Compression::FileSystem::File_Write</definition>
+        <argsstring>(std::string &amp;&amp;argPath, std::string &amp;&amp;buffer, bool ifRelative)</argsstring>
+        <name>File_Write</name>
+        <qualifiedname>Simp_Compression::FileSystem::File_Write</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>argPath</declname>
+        </param>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ifRelative</declname>
+        </param>
+        <briefdescription>
+<para>向文件写入文本数据。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>argPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件路径。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>要写入的数据缓冲区。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ifRelative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>flag，指示路径是否为相对路径。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>如果成功写入则返回true，否则返回false。 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Simp_Compression/inc/include.h" line="83" column="14" bodyfile="Simp_Compression/inc/include.h" bodystart="83" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="_simp___compression_2inc_2include_8h_1adaccb2a899853d696deefcc8da0daead" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Simp_Compression::FileSystem::File_Write_Bin</definition>
+        <argsstring>(std::string &amp;&amp;argPath, std::vector&lt; int &gt; &amp;&amp;buffer, bool ifRelative)</argsstring>
+        <name>File_Write_Bin</name>
+        <qualifiedname>Simp_Compression::FileSystem::File_Write_Bin</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>argPath</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; int &gt; &amp;&amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ifRelative</declname>
+        </param>
+        <briefdescription>
+<para>向文件写入二进制数据。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>argPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>文件路径。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>要写入的数据缓冲区。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ifRelative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>flag，指示路径是否为相对路径。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>如果成功写入则返回true，否则返回false。 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Simp_Compression/inc/include.h" line="118" column="14" bodyfile="Simp_Compression/inc/include.h" bodystart="118" bodyend="142"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Simp_Compression/inc/include.h" line="24" column="5"/>
+  </compounddef>
+</doxygen>

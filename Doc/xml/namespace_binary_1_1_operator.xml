@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="zh">
+  <compounddef id="namespace_binary_1_1_operator" kind="namespace" language="C++">
+    <compoundname>Binary::Operator</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_binary_2inc_2include_8h_1a3577d73495fb5a35d33f4a868630e086" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Ty</type>
+          </param>
+        </templateparamlist>
+        <type>Ty</type>
+        <definition>Ty Binary::Operator::Bit_Set</definition>
+        <argsstring>(Ty Num, int pos, bool value)</argsstring>
+        <name>Bit_Set</name>
+        <qualifiedname>Binary::Operator::Bit_Set</qualifiedname>
+        <param>
+          <type>Ty</type>
+          <declname>Num</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>设置指定位置的位值。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Ty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>数据类型。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>要操作的数值。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>位的位置（从1开始计数）。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>要设置的位值（true或false）。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>返回设置位后的数值。 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Binary/inc/include.h" line="35" column="12" bodyfile="Binary/inc/include.h" bodystart="35" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="_binary_2inc_2include_8h_1ad7c1aeaaf03efef55f850da822f3d7b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Ty</type>
+          </param>
+        </templateparamlist>
+        <type>Ty</type>
+        <definition>Ty Binary::Operator::Bit_Flip</definition>
+        <argsstring>(Ty Num, int pos)</argsstring>
+        <name>Bit_Flip</name>
+        <qualifiedname>Binary::Operator::Bit_Flip</qualifiedname>
+        <param>
+          <type>Ty</type>
+          <declname>Num</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>翻转指定位置的位。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Ty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>数据类型。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>要操作的数值。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>位的位置（从1开始计数）。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>返回翻转位后的数值。 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Binary/inc/include.h" line="60" column="12" bodyfile="Binary/inc/include.h" bodystart="60" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="_binary_2inc_2include_8h_1aa8db08adbe2cf1678b1383e1e5e73d70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Ty</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool Binary::Operator::Bit_Check</definition>
+        <argsstring>(Ty Num, int pos)</argsstring>
+        <name>Bit_Check</name>
+        <qualifiedname>Binary::Operator::Bit_Check</qualifiedname>
+        <param>
+          <type>Ty</type>
+          <declname>Num</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>检查指定位置的位值。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Ty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>数据类型。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>要操作的数值。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>位的位置（从0开始计数）。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>如果指定位置的位为1则返回true，否则返回false。 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Binary/inc/include.h" line="76" column="14" bodyfile="Binary/inc/include.h" bodystart="76" bodyend="79"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Binary/inc/include.h" line="20" column="5"/>
+  </compounddef>
+</doxygen>

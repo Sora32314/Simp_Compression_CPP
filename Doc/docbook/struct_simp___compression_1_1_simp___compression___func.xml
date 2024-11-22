@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_simp___compression_1_1_simp___compression___func" xml:lang="zh">
+<title>Simp_Compression::Simp_Compression_Func结构体 参考</title>
+<indexterm><primary>Simp_Compression::Simp_Compression_Func</primary></indexterm>
+<para>
+
+<para>包含压缩和解压缩函数的对象。 </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;include.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public 属性    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_simp___compression_1_1_simp___compression___func_1a3d741130a37f1d74f059637e5b4dc672"/>std::function&lt; bool(std::string &amp;&amp;, bool, std::string &amp;&amp;, bool)&gt; <emphasis role="strong">GeneCompression</emphasis> = <link linkend="_namespace_simp___compression_1af5056377f8f2965a0ee23d8443667034">Gene_Compression</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_simp___compression_1_1_simp___compression___func_1ab20e0bc2861d86e753fbb1d204343d5a"/>std::function&lt; bool(std::string &amp;&amp;, bool, std::string &amp;&amp;, bool)&gt; <emphasis role="strong">GeneDecompression</emphasis> = <link linkend="_namespace_simp___compression_1adea5f7af3c73c02bcdf84cf8b28ebbb6">Gene_Decompression</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>包含压缩和解压缩函数的对象。 </para>
+<para>
+该结构体的文档由以下文件生成:</para>
+Simp_Compression/inc/include.h</section>
+</section>

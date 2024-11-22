@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__r_e_a_d_m_e" xml:lang="zh">
+<title>Simp_Compression_CPP</title>
+<indexterm><primary>Simp_Compression_CPP</primary></indexterm>
+
+<para><anchor xml:id="_md__r_e_a_d_m_e_1autotoc_md0"/></para>
+
+<para>一个简单的C++练手压缩算法合集。（劣质代码警告！） </para>
+</section>

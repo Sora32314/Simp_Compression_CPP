@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="zh">
+    <info>
+    <title>Simp_Compression</title>
+    </info>
+    <xi:include href="md__r_e_a_d_m_e.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<chapter>
+    <title>命名空间文档</title>
+<xi:include href="namespace_binary.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_operator.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_simp___compression.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>类说明</title>
+    <xi:include href="struct_simp___compression_1_1_file_system_1_1_file_system___func.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_simp___compression_1_1_simp___compression___func.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>文件说明</title>
+    <xi:include href="_binary_2inc_2include_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_simp___compression_2inc_2include_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

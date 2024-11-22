@@ -1,0 +1,31 @@
+.TH "Simp_Compression::FileSystem::FileSystem_Func" 3 "Version 0.0.1" "Simp_Compression" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Simp_Compression::FileSystem::FileSystem_Func \- 包含文件系统操作函数的对象。  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <include\&.h>\fP
+.SS "Public 属性"
+
+.in +1c
+.ti -1c
+.RI "std::function< void(std::string &&, bool)> \fBFileCreate\fP = SCF::File_Create"
+.br
+.ti -1c
+.RI "std::function< bool(std::string &&, std::string &&, bool)> \fBFileWrite\fP = SCF::File_Write"
+.br
+.ti -1c
+.RI "std::function< bool(std::string &&, std::vector< int > &&, bool)> \fBFileWriteBin\fP = SCF::File_Write_Bin"
+.br
+.in -1c
+.SH "详细描述"
+.PP 
+包含文件系统操作函数的对象。 
+
+.SH "作者"
+.PP 
+由 Doyxgen 通过分析 Simp_Compression 的 源代码自动生成\&.

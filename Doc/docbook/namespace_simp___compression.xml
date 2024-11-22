@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_simp___compression" xml:lang="zh">
+<title>Simp_Compression 命名空间参考</title>
+<indexterm><primary>Simp_Compression</primary></indexterm>
+<para>
+
+<para>包含文件系统操作和压缩/解压缩功能的命名空间。 </para>
+ 
+</para>
+<simplesect>
+    <title>类    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_simp___compression_1_1_simp___compression___func">Simp_Compression_Func</link></para>
+
+<para>包含压缩和解压缩函数的对象。 </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>函数    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;typename Tt , typename ... Args&gt; </para><para>auto <link linkend="_namespace_simp___compression_1abc646bbb612fbb58c2af15fd37c5bf6b">CallBack_Wrapper</link> (std::function&lt; Tt &gt; func, Args &amp;&amp;... args)</para>
+
+<para>文件系统命名空间内的函数包装器。 </para>
+</listitem>
+            <listitem><para>bool <link linkend="_namespace_simp___compression_1af5056377f8f2965a0ee23d8443667034">Gene_Compression</link> (std::string &amp;&amp;argPath, bool isRelativeArg, std::string &amp;&amp;resPath, bool isRelativeRes)</para>
+
+<para>压缩基因序列文件。 </para>
+</listitem>
+            <listitem><para>bool <link linkend="_namespace_simp___compression_1adea5f7af3c73c02bcdf84cf8b28ebbb6">Gene_Decompression</link> (std::string &amp;&amp;argPath, bool isRelativeArg, std::string &amp;&amp;resPath, bool isRelativeRes)</para>
+
+<para>解压基因序列文件。 </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>包含文件系统操作和压缩/解压缩功能的命名空间。 </para>
+</section>
+<section>
+<title>函数说明</title>
+<anchor xml:id="_namespace_simp___compression_1abc646bbb612fbb58c2af15fd37c5bf6b"/><section>
+    <title>CallBack_Wrapper()</title>
+<indexterm><primary>CallBack_Wrapper</primary><secondary>Simp_Compression</secondary></indexterm>
+<indexterm><primary>Simp_Compression</primary><secondary>CallBack_Wrapper</secondary></indexterm>
+<computeroutput>template&lt;typename Tt , typename ... Args&gt; </computeroutput><para><computeroutput>auto Simp_Compression::CallBack_Wrapper (std::function&lt; Tt &gt; func, Args &amp;&amp;... args)</computeroutput></para><para>
+
+<para>文件系统命名空间内的函数包装器。 </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>func</entry><entry>
+<para>传入需要包装的函数指针。 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>...</entry><entry>
+<para>args 函数的参数。 </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>返回</title>
+
+<para>返回函数调用的结果。 </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_namespace_simp___compression_1af5056377f8f2965a0ee23d8443667034"/><section>
+    <title>Gene_Compression()</title>
+<indexterm><primary>Gene_Compression</primary><secondary>Simp_Compression</secondary></indexterm>
+<indexterm><primary>Simp_Compression</primary><secondary>Gene_Compression</secondary></indexterm>
+<para><computeroutput>bool Simp_Compression::Gene_Compression (std::string &amp;&amp; argPath, bool isRelativeArg, std::string &amp;&amp; resPath, bool isRelativeRes)</computeroutput></para><para>
+
+<para>压缩基因序列文件。 </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>argPath</entry><entry>
+<para>输入文件路径。 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isRelativeArg</entry><entry>
+<para>flag，指示输入文件路径是否为相对路径。 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>resPath</entry><entry>
+<para>输出文件路径。 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isRelativeRes</entry><entry>
+<para>flag，指示输出文件路径是否为相对路径。 </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>返回</title>
+
+<para>如果成功压缩则返回true，否则返回false。 </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_namespace_simp___compression_1adea5f7af3c73c02bcdf84cf8b28ebbb6"/><section>
+    <title>Gene_Decompression()</title>
+<indexterm><primary>Gene_Decompression</primary><secondary>Simp_Compression</secondary></indexterm>
+<indexterm><primary>Simp_Compression</primary><secondary>Gene_Decompression</secondary></indexterm>
+<para><computeroutput>bool Simp_Compression::Gene_Decompression (std::string &amp;&amp; argPath, bool isRelativeArg, std::string &amp;&amp; resPath, bool isRelativeRes)</computeroutput></para><para>
+
+<para>解压基因序列文件。 </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>argPath</entry><entry>
+<para>输入文件路径。 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isRelativeArg</entry><entry>
+<para>flag，指示输入文件路径是否为相对路径。 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>resPath</entry><entry>
+<para>输出文件路径。 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isRelativeRes</entry><entry>
+<para>flag，指示输出文件路径是否为相对路径。 </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>返回</title>
+
+<para>如果成功解压则返回true，否则返回false。 </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

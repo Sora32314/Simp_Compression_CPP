@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_simp___compression_1_1_file_system_1_1_file_system___func" xml:lang="zh">
+<title>Simp_Compression::FileSystem::FileSystem_Func结构体 参考</title>
+<indexterm><primary>Simp_Compression::FileSystem::FileSystem_Func</primary></indexterm>
+<para>
+
+<para>包含文件系统操作函数的对象。 </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;include.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public 属性    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_simp___compression_1_1_file_system_1_1_file_system___func_1a7adf735748b15a90cb30fef8eba43feb"/>std::function&lt; void(std::string &amp;&amp;, bool)&gt; <emphasis role="strong">FileCreate</emphasis> = SCF::File_Create</para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_simp___compression_1_1_file_system_1_1_file_system___func_1a65ea2a53325a74d4a18f5c26ef5e9b2e"/>std::function&lt; bool(std::string &amp;&amp;, std::string &amp;&amp;, bool)&gt; <emphasis role="strong">FileWrite</emphasis> = SCF::File_Write</para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_simp___compression_1_1_file_system_1_1_file_system___func_1a74a52a872a5d451f1c5447399225b2be"/>std::function&lt; bool(std::string &amp;&amp;, std::vector&lt; int &gt; &amp;&amp;, bool)&gt; <emphasis role="strong">FileWriteBin</emphasis> = SCF::File_Write_Bin</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>包含文件系统操作函数的对象。 </para>
+<para>
+该结构体的文档由以下文件生成:</para>
+Simp_Compression/inc/include.h</section>
+</section>

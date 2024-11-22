@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="zh">
+  <compounddef id="struct_simp___compression_1_1_simp___compression___func" kind="struct" language="C++" prot="public">
+    <compoundname>Simp_Compression::Simp_Compression_Func</compoundname>
+    <includes refid="_simp___compression_2inc_2include_8h" local="no">include.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_simp___compression_1_1_simp___compression___func_1a3d741130a37f1d74f059637e5b4dc672" prot="public" static="no" mutable="no">
+        <type>std::function&lt; bool(std::string &amp;&amp;, bool, std::string &amp;&amp;, bool)&gt;</type>
+        <definition>std::function&lt;bool(std::string&amp;&amp;, bool, std::string&amp;&amp;, bool)&gt; Simp_Compression::Simp_Compression_Func::GeneCompression</definition>
+        <argsstring></argsstring>
+        <name>GeneCompression</name>
+        <qualifiedname>Simp_Compression::Simp_Compression_Func::GeneCompression</qualifiedname>
+        <initializer>= <ref refid="namespace_simp___compression_1af5056377f8f2965a0ee23d8443667034" kindref="member">Gene_Compression</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Simp_Compression/inc/include.h" line="372" column="23" bodyfile="Simp_Compression/inc/include.h" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_simp___compression_1_1_simp___compression___func_1ab20e0bc2861d86e753fbb1d204343d5a" prot="public" static="no" mutable="no">
+        <type>std::function&lt; bool(std::string &amp;&amp;, bool, std::string &amp;&amp;, bool)&gt;</type>
+        <definition>std::function&lt;bool(std::string&amp;&amp;, bool, std::string&amp;&amp;, bool)&gt; Simp_Compression::Simp_Compression_Func::GeneDecompression</definition>
+        <argsstring></argsstring>
+        <name>GeneDecompression</name>
+        <qualifiedname>Simp_Compression::Simp_Compression_Func::GeneDecompression</qualifiedname>
+        <initializer>= <ref refid="namespace_simp___compression_1adea5f7af3c73c02bcdf84cf8b28ebbb6" kindref="member">Gene_Decompression</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Simp_Compression/inc/include.h" line="373" column="23" bodyfile="Simp_Compression/inc/include.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>包含压缩和解压缩函数的对象。 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Simp_Compression/inc/include.h" line="370" column="5" bodyfile="Simp_Compression/inc/include.h" bodystart="371" bodyend="374"/>
+    <listofallmembers>
+      <member refid="struct_simp___compression_1_1_simp___compression___func_1a3d741130a37f1d74f059637e5b4dc672" prot="public" virt="non-virtual"><scope>Simp_Compression::Simp_Compression_Func</scope><name>GeneCompression</name></member>
+      <member refid="struct_simp___compression_1_1_simp___compression___func_1ab20e0bc2861d86e753fbb1d204343d5a" prot="public" virt="non-virtual"><scope>Simp_Compression::Simp_Compression_Func</scope><name>GeneDecompression</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

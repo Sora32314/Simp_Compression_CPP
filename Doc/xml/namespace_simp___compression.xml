@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="zh">
+  <compounddef id="namespace_simp___compression" kind="namespace" language="C++">
+    <compoundname>Simp_Compression</compoundname>
+    <innerclass refid="struct_simp___compression_1_1_simp___compression___func" prot="public">Simp_Compression::Simp_Compression_Func</innerclass>
+    <innernamespace refid="namespace_simp___compression_1_1_file_system">Simp_Compression::FileSystem</innernamespace>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_simp___compression_1abc646bbb612fbb58c2af15fd37c5bf6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Tt</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto Simp_Compression::CallBack_Wrapper</definition>
+        <argsstring>(std::function&lt; Tt &gt; func, Args &amp;&amp;... args)</argsstring>
+        <name>CallBack_Wrapper</name>
+        <qualifiedname>Simp_Compression::CallBack_Wrapper</qualifiedname>
+        <param>
+          <type>std::function&lt; Tt &gt;</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>文件系统命名空间内的函数包装器。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>传入需要包装的函数指针。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>args 函数的参数。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>返回函数调用的结果。 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Simp_Compression/inc/include.h" line="169" column="10" bodyfile="Simp_Compression/inc/include.h" bodystart="169" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_simp___compression_1af5056377f8f2965a0ee23d8443667034" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Simp_Compression::Gene_Compression</definition>
+        <argsstring>(std::string &amp;&amp;argPath, bool isRelativeArg, std::string &amp;&amp;resPath, bool isRelativeRes)</argsstring>
+        <name>Gene_Compression</name>
+        <qualifiedname>Simp_Compression::Gene_Compression</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>argPath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isRelativeArg</declname>
+        </param>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>resPath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isRelativeRes</declname>
+        </param>
+        <briefdescription>
+<para>压缩基因序列文件。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>argPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>输入文件路径。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isRelativeArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>flag，指示输入文件路径是否为相对路径。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>输出文件路径。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isRelativeRes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>flag，指示输出文件路径是否为相对路径。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>如果成功压缩则返回true，否则返回false。 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Simp_Compression/inc/include.h" line="186" column="10" bodyfile="Simp_Compression/inc/include.h" bodystart="186" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_simp___compression_1adea5f7af3c73c02bcdf84cf8b28ebbb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Simp_Compression::Gene_Decompression</definition>
+        <argsstring>(std::string &amp;&amp;argPath, bool isRelativeArg, std::string &amp;&amp;resPath, bool isRelativeRes)</argsstring>
+        <name>Gene_Decompression</name>
+        <qualifiedname>Simp_Compression::Gene_Decompression</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>argPath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isRelativeArg</declname>
+        </param>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>resPath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isRelativeRes</declname>
+        </param>
+        <briefdescription>
+<para>解压基因序列文件。 </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>argPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>输入文件路径。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isRelativeArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>flag，指示输入文件路径是否为相对路径。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>输出文件路径。 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isRelativeRes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>flag，指示输出文件路径是否为相对路径。 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>如果成功解压则返回true，否则返回false。 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Simp_Compression/inc/include.h" line="281" column="10" bodyfile="Simp_Compression/inc/include.h" bodystart="281" bodyend="363"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>包含文件系统操作和压缩/解压缩功能的命名空间。 </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Simp_Compression/inc/include.h" line="18" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.12.0" xml:lang="zh">
+  <compound refid="struct_simp___compression_1_1_file_system_1_1_file_system___func" kind="struct"><name>Simp_Compression::FileSystem::FileSystem_Func</name>
+    <member refid="struct_simp___compression_1_1_file_system_1_1_file_system___func_1a7adf735748b15a90cb30fef8eba43feb" kind="variable"><name>FileCreate</name></member>
+    <member refid="struct_simp___compression_1_1_file_system_1_1_file_system___func_1a65ea2a53325a74d4a18f5c26ef5e9b2e" kind="variable"><name>FileWrite</name></member>
+    <member refid="struct_simp___compression_1_1_file_system_1_1_file_system___func_1a74a52a872a5d451f1c5447399225b2be" kind="variable"><name>FileWriteBin</name></member>
+  </compound>
+  <compound refid="struct_simp___compression_1_1_simp___compression___func" kind="struct"><name>Simp_Compression::Simp_Compression_Func</name>
+    <member refid="struct_simp___compression_1_1_simp___compression___func_1a3d741130a37f1d74f059637e5b4dc672" kind="variable"><name>GeneCompression</name></member>
+    <member refid="struct_simp___compression_1_1_simp___compression___func_1ab20e0bc2861d86e753fbb1d204343d5a" kind="variable"><name>GeneDecompression</name></member>
+  </compound>
+  <compound refid="namespace_binary" kind="namespace"><name>Binary</name>
+  </compound>
+  <compound refid="namespace_binary_1_1_operator" kind="namespace"><name>Binary::Operator</name>
+    <member refid="_binary_2inc_2include_8h_1a3577d73495fb5a35d33f4a868630e086" kind="function"><name>Bit_Set</name></member>
+    <member refid="_binary_2inc_2include_8h_1ad7c1aeaaf03efef55f850da822f3d7b0" kind="function"><name>Bit_Flip</name></member>
+    <member refid="_binary_2inc_2include_8h_1aa8db08adbe2cf1678b1383e1e5e73d70" kind="function"><name>Bit_Check</name></member>
+  </compound>
+  <compound refid="namespace_operator" kind="namespace"><name>Operator</name>
+  </compound>
+  <compound refid="namespace_simp___compression" kind="namespace"><name>Simp_Compression</name>
+    <member refid="namespace_simp___compression_1abc646bbb612fbb58c2af15fd37c5bf6b" kind="function"><name>CallBack_Wrapper</name></member>
+    <member refid="namespace_simp___compression_1af5056377f8f2965a0ee23d8443667034" kind="function"><name>Gene_Compression</name></member>
+    <member refid="namespace_simp___compression_1adea5f7af3c73c02bcdf84cf8b28ebbb6" kind="function"><name>Gene_Decompression</name></member>
+  </compound>
+  <compound refid="namespace_simp___compression_1_1_file_system" kind="namespace"><name>Simp_Compression::FileSystem</name>
+    <member refid="_simp___compression_2inc_2include_8h_1a46c10690bb0add6e34edd507498c898c" kind="function"><name>CallBack_Wrapper</name></member>
+    <member refid="_simp___compression_2inc_2include_8h_1a0373adc78667304c4a985a1ccfe5be0e" kind="function"><name>File_Create</name></member>
+    <member refid="_simp___compression_2inc_2include_8h_1a4044d5d20ec28d50c96b7f3708d97337" kind="function"><name>File_Write</name></member>
+    <member refid="_simp___compression_2inc_2include_8h_1adaccb2a899853d696deefcc8da0daead" kind="function"><name>File_Write_Bin</name></member>
+  </compound>
+  <compound refid="_binary_2inc_2include_8h" kind="file"><name>include.h</name>
+  </compound>
+  <compound refid="_simp___compression_2inc_2include_8h" kind="file"><name>include.h</name>
+    <member refid="_simp___compression_2inc_2include_8h_1ad0505b0797fd0c921b9e5c0968bcb8db" kind="define"><name>BYTESIZE</name></member>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="md__r_e_a_d_m_e" kind="page"><name>md__r_e_a_d_m_e</name>
+  </compound>
+  <compound refid="dir_3785288b95ad083bc6e0b212dbe13340" kind="dir"><name>Binary</name>
+  </compound>
+  <compound refid="dir_f3c209a2da3fa968273cd452681da143" kind="dir"><name>Binary/inc</name>
+  </compound>
+  <compound refid="dir_6fcab78c359f1026ff1e2845ec82c653" kind="dir"><name>Simp_Compression/inc</name>
+  </compound>
+  <compound refid="dir_e8f3b7a4051d872ba0ac0710503c9cf1" kind="dir"><name>Simp_Compression</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

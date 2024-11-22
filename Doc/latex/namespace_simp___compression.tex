@@ -1,0 +1,96 @@
+\doxysection{Simp\+\_\+\+Compression 命名空间参考}
+\hypertarget{namespace_simp___compression}{}\label{namespace_simp___compression}\index{Simp\_Compression@{Simp\_Compression}}
+
+
+包含文件系统操作和压缩/解压缩功能的命名空间。  
+
+
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_simp___compression_1_1_simp___compression___func}{Simp\+\_\+\+Compression\+\_\+\+Func}}
+\begin{DoxyCompactList}\small\item\em 包含压缩和解压缩函数的对象。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Tt , typename ... Args$>$ }\\auto \mbox{\hyperlink{namespace_simp___compression_abc646bbb612fbb58c2af15fd37c5bf6b}{Call\+Back\+\_\+\+Wrapper}} (std\+::function$<$ Tt $>$ func, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em 文件系统命名空间内的函数包装器。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_simp___compression_af5056377f8f2965a0ee23d8443667034}{Gene\+\_\+\+Compression}} (std\+::string \&\&arg\+Path, bool is\+Relative\+Arg, std\+::string \&\&res\+Path, bool is\+Relative\+Res)
+\begin{DoxyCompactList}\small\item\em 压缩基因序列文件。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_simp___compression_adea5f7af3c73c02bcdf84cf8b28ebbb6}{Gene\+\_\+\+Decompression}} (std\+::string \&\&arg\+Path, bool is\+Relative\+Arg, std\+::string \&\&res\+Path, bool is\+Relative\+Res)
+\begin{DoxyCompactList}\small\item\em 解压基因序列文件。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+包含文件系统操作和压缩/解压缩功能的命名空间。 
+
+\doxysubsection{函数说明}
+\Hypertarget{namespace_simp___compression_abc646bbb612fbb58c2af15fd37c5bf6b}\index{Simp\_Compression@{Simp\_Compression}!CallBack\_Wrapper@{CallBack\_Wrapper}}
+\index{CallBack\_Wrapper@{CallBack\_Wrapper}!Simp\_Compression@{Simp\_Compression}}
+\doxysubsubsection{\texorpdfstring{CallBack\_Wrapper()}{CallBack\_Wrapper()}}
+{\footnotesize\ttfamily \label{namespace_simp___compression_abc646bbb612fbb58c2af15fd37c5bf6b} 
+template$<$typename Tt , typename ... Args$>$ \\
+auto Simp\+\_\+\+Compression\+::\+Call\+Back\+\_\+\+Wrapper (\begin{DoxyParamCaption}\item[{std\+::function$<$ Tt $>$}]{func}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+
+
+文件系统命名空间内的函数包装器。 
+
+
+\begin{DoxyParams}{参数}
+{\em func} & 传入需要包装的函数指针。 \\
+\hline
+{\em ...} & args 函数的参数。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+返回函数调用的结果。 
+\end{DoxyReturn}
+\Hypertarget{namespace_simp___compression_af5056377f8f2965a0ee23d8443667034}\index{Simp\_Compression@{Simp\_Compression}!Gene\_Compression@{Gene\_Compression}}
+\index{Gene\_Compression@{Gene\_Compression}!Simp\_Compression@{Simp\_Compression}}
+\doxysubsubsection{\texorpdfstring{Gene\_Compression()}{Gene\_Compression()}}
+{\footnotesize\ttfamily \label{namespace_simp___compression_af5056377f8f2965a0ee23d8443667034} 
+bool Simp\+\_\+\+Compression\+::\+Gene\+\_\+\+Compression (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{arg\+Path}{, }\item[{bool}]{is\+Relative\+Arg}{, }\item[{std\+::string \&\&}]{res\+Path}{, }\item[{bool}]{is\+Relative\+Res}{}\end{DoxyParamCaption})}
+
+
+
+压缩基因序列文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em arg\+Path} & 输入文件路径。 \\
+\hline
+{\em is\+Relative\+Arg} & flag，指示输入文件路径是否为相对路径。 \\
+\hline
+{\em res\+Path} & 输出文件路径。 \\
+\hline
+{\em is\+Relative\+Res} & flag，指示输出文件路径是否为相对路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+如果成功压缩则返回true，否则返回false。 
+\end{DoxyReturn}
+\Hypertarget{namespace_simp___compression_adea5f7af3c73c02bcdf84cf8b28ebbb6}\index{Simp\_Compression@{Simp\_Compression}!Gene\_Decompression@{Gene\_Decompression}}
+\index{Gene\_Decompression@{Gene\_Decompression}!Simp\_Compression@{Simp\_Compression}}
+\doxysubsubsection{\texorpdfstring{Gene\_Decompression()}{Gene\_Decompression()}}
+{\footnotesize\ttfamily \label{namespace_simp___compression_adea5f7af3c73c02bcdf84cf8b28ebbb6} 
+bool Simp\+\_\+\+Compression\+::\+Gene\+\_\+\+Decompression (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{arg\+Path}{, }\item[{bool}]{is\+Relative\+Arg}{, }\item[{std\+::string \&\&}]{res\+Path}{, }\item[{bool}]{is\+Relative\+Res}{}\end{DoxyParamCaption})}
+
+
+
+解压基因序列文件。 
+
+
+\begin{DoxyParams}{参数}
+{\em arg\+Path} & 输入文件路径。 \\
+\hline
+{\em is\+Relative\+Arg} & flag，指示输入文件路径是否为相对路径。 \\
+\hline
+{\em res\+Path} & 输出文件路径。 \\
+\hline
+{\em is\+Relative\+Res} & flag，指示输出文件路径是否为相对路径。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+如果成功解压则返回true，否则返回false。 
+\end{DoxyReturn}
