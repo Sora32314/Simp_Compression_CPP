@@ -14,12 +14,25 @@ namespace fs = std::filesystem;
 #endif
 
 
+/**
+ * @namespace Simp_Compression
+ * @brief 包含文件系统操作和压缩/解压缩功能的命名空间。
+ */
 
 namespace Simp_Compression
 {
     namespace FileSystem
     {
         namespace SCF = Simp_Compression::FileSystem;
+
+
+        /**
+         * @brief 文件系统命名空间内的函数包装器。
+         *
+         * @param func 传入需要包装的函数指针。
+         * @param ... args 函数的参数。
+         * @return 返回函数调用的结果。
+         */
 
         template<typename Tt, typename ... Args>
         auto CallBack_Wrapper(std::function<Tt> func, Args&& ... args)
@@ -29,6 +42,12 @@ namespace Simp_Compression
         }
 
 
+        /**
+         * @brief 用来创建一个文件。
+         *
+         * @param argPath 需要创建的文件路径。
+         * @param ifRelative flag，用来控制传入的路径是否为相对路径。
+         */
         void File_Create(std::string&& argPath, bool ifRelative)
         {
             fs::path pa(argPath);
@@ -52,6 +71,15 @@ namespace Simp_Compression
             return;
         }
 
+
+        /**
+         * @brief 向文件写入文本数据。
+         *
+         * @param argPath 文件路径。
+         * @param buffer 要写入的数据缓冲区。
+         * @param ifRelative flag，指示路径是否为相对路径。
+         * @return 如果成功写入则返回true，否则返回false。
+         */
         bool File_Write(std::string&& argPath, std::string&& buffer, bool ifRelative)
         {
             fs::path pa(std::forward<std::string>(argPath));
@@ -78,6 +106,15 @@ namespace Simp_Compression
             return true;
         }
 
+
+        /**
+         * @brief 向文件写入二进制数据。
+         *
+         * @param argPath 文件路径。
+         * @param buffer 要写入的数据缓冲区。
+         * @param ifRelative flag，指示路径是否为相对路径。
+         * @return 如果成功写入则返回true，否则返回false。
+         */
         bool File_Write_Bin(std::string&& argPath, std::vector<int>&& buffer, bool ifRelative)
         {
             fs::path pa(std::forward<std::string>(argPath));
@@ -104,6 +141,12 @@ namespace Simp_Compression
             return true;
         }
 
+
+
+        /**
+         * @struct FileSystem_Func
+         * @brief 包含文件系统操作函数的对象。
+         */
         struct FileSystem_Func
         {
             std::function<void(std::string&&, bool)> FileCreate = SCF::File_Create;
@@ -113,6 +156,15 @@ namespace Simp_Compression
 
     } 
     
+
+
+    /**
+     * @brief 文件系统命名空间内的函数包装器。
+     *
+     * @param func 传入需要包装的函数指针。
+     * @param ... args 函数的参数。
+     * @return 返回函数调用的结果。
+     */
     template<typename Tt, typename ... Args>
     auto CallBack_Wrapper(std::function<Tt> func, Args&& ... args)
     { 
@@ -120,6 +172,17 @@ namespace Simp_Compression
         return ret;
     }
 
+
+
+    /**
+     * @brief 压缩基因序列文件。
+     *
+     * @param argPath 输入文件路径。
+     * @param isRelativeArg flag，指示输入文件路径是否为相对路径。
+     * @param resPath 输出文件路径。
+     * @param isRelativeRes flag，指示输出文件路径是否为相对路径。
+     * @return 如果成功压缩则返回true，否则返回false。
+     */
     bool Gene_Compression(std::string&& argPath, bool isRelativeArg, std::string&& resPath, bool isRelativeRes)
     {
         std::vector<int> streamTarget;
@@ -204,6 +267,17 @@ namespace Simp_Compression
         return true;
     }
 
+
+
+    /**
+     * @brief 解压基因序列文件。
+     *
+     * @param argPath 输入文件路径。
+     * @param isRelativeArg flag，指示输入文件路径是否为相对路径。
+     * @param resPath 输出文件路径。
+     * @param isRelativeRes flag，指示输出文件路径是否为相对路径。
+     * @return 如果成功解压则返回true，否则返回false。
+     */
     bool Gene_Decompression(std::string&& argPath, bool isRelativeArg, std::string&& resPath, bool isRelativeRes)
     {
         std::vector<bool> streamTarget;
@@ -289,6 +363,10 @@ namespace Simp_Compression
     }
 
 
+    /**
+     * @struct Simp_Compression_Func
+     * @brief 包含压缩和解压缩函数的对象。
+     */
     struct Simp_Compression_Func
     {
         std::function<bool(std::string&&, bool, std::string&&, bool)> GeneCompression = Gene_Compression;
